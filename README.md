@@ -125,6 +125,8 @@ Base URL (local): `http://localhost:8080`
 | PUT | `/api/v1/review/update/{id}` | Update a review (id, booking, and user must match the original) |
 | DELETE | `/api/v1/review/delete/{id}` | Delete a review |
 | GET | `/api/v1/review/place/{placeId}` | All reviews for a place |
+| GET | `/api/v1/review/place/{placeId}/average` | Average rating of a place |
+
 
 ## AI Assistant — `/ai`
 
