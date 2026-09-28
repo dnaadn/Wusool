@@ -126,5 +126,32 @@ public class ReviewService {
         return reviews;
     }
 
+    // extra: average rating of a place as a sentence, null if the place does not exist
+    public String getPlaceAverageRating(Integer placeId) {
+
+        Place place = placeRepository.findPlaceById(placeId);
+
+        if (place == null) {
+            return null;
+        }
+
+        List<Review> reviews = getPlaceReviews(placeId);
+
+        if (reviews.isEmpty()) {
+            return place.getName() + " has no reviews yet";
+        }
+
+        double sum = 0;
+        for (Review review : reviews) {
+            sum += review.getRating();
+        }
+
+        double average = Math.round((sum / reviews.size()) * 10.0) / 10.0;
+
+        return place.getName() + " has an average rating of " + average
+                + " out of 5 based on " + reviews.size()
+                + (reviews.size() == 1 ? " review" : " reviews");
+    }
+
 
 }

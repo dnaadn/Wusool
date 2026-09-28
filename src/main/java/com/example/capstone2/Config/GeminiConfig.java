@@ -9,6 +9,6 @@ public class GeminiConfig {
 
     @Bean
     public Client geminiClient() {
-        return Client.builder().apiKey("AQ.Ab8RN6L6Y83Wz6krf8dBBmtWtejTi2pzV81RFXXOTunVyChX1A").build();
+        return Client.builder().apiKey("AQ.Ab8RN6JhmURiYM4T56I8nQyl7-C7QtQ1i8-7WBNXS8XUziMNuA").build();
     }
 }

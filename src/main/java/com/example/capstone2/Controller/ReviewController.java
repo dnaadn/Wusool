@@ -71,4 +71,16 @@ public class ReviewController {
         }
         return ResponseEntity.status(200).body(reviews);
     }
+
+    // extra: average rating of a place
+    @GetMapping("/place/{placeId}/average")
+    public ResponseEntity<?> getPlaceAverageRating(@PathVariable Integer placeId) {
+
+        String message = reviewService.getPlaceAverageRating(placeId);
+
+        if (message == null) {
+            return ResponseEntity.status(400).body(new ApiResponse("Place not found"));
+        }
+        return ResponseEntity.status(200).body(new ApiResponse(message));
+    }
 }
